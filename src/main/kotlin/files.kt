@@ -6,11 +6,15 @@ fun main() {
 
     wordsFile.createNewFile()
 
-    wordsFile.writeText("hello привет\n")
-    wordsFile.appendText("dog собака\n")
-    wordsFile.appendText("cat кошка\n")
+    val lines = wordsFile.readLines()
 
-    val dictionary = wordsFile.readLines()
+    val dictionary: MutableList<Word> = mutableListOf()
+    for (line in lines) {
+        val line = line.split("|")
+        val word = Word(line[0], line[1], 0)
+        dictionary.add(word)
+    }
+
     dictionary.forEach { println(it) }
 
 }
