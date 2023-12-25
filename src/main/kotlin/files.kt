@@ -11,7 +11,7 @@ fun main() {
     val dictionary: MutableList<Word> = mutableListOf()
     for (line in lines) {
         val line = line.split("|")
-        val word = Word(line[0], line[1], 0)
+        val word = Word(line[0], line[1], line[2].toInt())
         dictionary.add(word)
     }
 
